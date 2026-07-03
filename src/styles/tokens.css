@@ -1,0 +1,40 @@
+/* ============================================================
+   Design tokens — "Bold structure, warm skin."
+   Single source of truth mirrored in MASTER.md
+   ============================================================ */
+:root {
+  /* --- Paper-warm palette (never cold white) --- */
+  --paper: #f3efe7; /* bone base */
+  --paper-2: #ece6da; /* deeper paper — panels, insets */
+  --paper-3: #e3dccc; /* deepest paper — hairline fills */
+  --ink: #1a1712; /* warm espresso near-black (body + display) */
+  --ink-soft: #4a443b; /* secondary text */
+  --ink-mute: #8c8477; /* labels, meta, numerals */
+  --line: #cbc3b3; /* structural grid + hairlines */
+  --line-soft: #ddd6c8; /* faint grid */
+  --accent: #a2532b; /* restrained rust — © mark / one detail only */
+
+  /* --- Type families --- */
+  --serif: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Archivo Variable", "Archivo", "Helvetica Neue", Arial, sans-serif;
+
+  /* --- Fluid display scale (clamp: min, vw, max) --- */
+  --step-label: 0.72rem; /* wide-tracked small-caps labels */
+  --step-body: clamp(1rem, 0.95rem + 0.35vw, 1.18rem);
+  --step-lead: clamp(1.35rem, 1.1rem + 1.1vw, 2rem);
+  --step-h3: clamp(1.6rem, 1.2rem + 2vw, 3rem);
+  --step-h2: clamp(2.4rem, 1.4rem + 4.6vw, 5.5rem);
+  --step-display: clamp(3.2rem, 1rem + 11vw, 12.5rem);
+
+  /* --- Structure --- */
+  --grid-cols: 12;
+  --gutter: clamp(1rem, 0.4rem + 2vw, 2.25rem);
+  --margin: clamp(1.25rem, 0.5rem + 3.2vw, 4.5rem);
+  --maxw: 1680px;
+
+  /* --- Motion --- */
+  --ease-drift: cubic-bezier(0.16, 1, 0.3, 1); /* ≈ power4.out */
+  --dur-slow: 1.4s;
+
+  color-scheme: light;
+}

@@ -1,0 +1,158 @@
+/* Self-hosted variable fonts (no render-blocking external request) */
+@import "@fontsource-variable/fraunces/index.css";
+@import "@fontsource-variable/fraunces/wght-italic.css";
+@import "@fontsource-variable/archivo/index.css";
+@import "./tokens.css";
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--step-body);
+  line-height: 1.55;
+  font-synthesis: none;
+  /* subtle paper tooth so the bg never reads as flat screen-white */
+  background-image:
+    radial-gradient(rgba(26, 23, 18, 0.018) 1px, transparent 1px);
+  background-size: 3px 3px;
+  overflow-x: hidden;
+}
+img,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ---------- ScrollSmoother wrappers ---------- */
+#smooth-wrapper {
+  overflow: hidden;
+}
+/* On mobile / reduced-motion we bypass ScrollSmoother, so wrappers must
+   not clip or fix layout. */
+html.no-smooth #smooth-wrapper,
+html.no-smooth #smooth-content {
+  overflow: visible;
+  transform: none !important;
+}
+
+/* ---------- Layout primitives ---------- */
+.shell {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+.grid12 {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+
+/* ---------- Type helpers ---------- */
+.serif {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+}
+.italic {
+  font-style: italic;
+}
+.sans {
+  font-family: var(--sans);
+}
+.display {
+  font-family: var(--serif);
+  font-weight: 340;
+  font-size: var(--step-display);
+  line-height: 0.86;
+  letter-spacing: -0.02em;
+}
+.label {
+  font-family: var(--sans);
+  font-size: var(--step-label);
+  font-weight: 560;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ink-mute);
+}
+.section-index {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 1rem + 3.5vw, 4.5rem);
+  color: var(--line);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Structural grid overlay (the "printed" ruled grid) ---------- */
+.grid-lines {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+.grid-lines .col-rule {
+  border-left: 1px solid var(--line-soft);
+  height: 100%;
+}
+.grid-lines .col-rule:first-child,
+.grid-lines .col-rule:last-child {
+  border-color: var(--line);
+}
+@media (max-width: 1023px) {
+  /* keep the grid track (so remaining rules stay aligned), just hide the rule */
+  .grid-lines .col-rule[data-hide-mobile] {
+    visibility: hidden;
+  }
+}
+
+/* ---------- Accessibility ---------- */
+:where(a, button, input, textarea):focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Reduced motion: hard stop, final state only ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

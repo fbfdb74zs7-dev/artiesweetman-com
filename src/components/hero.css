@@ -1,0 +1,240 @@
+.hero {
+  position: relative;
+  z-index: 2;
+  padding-top: clamp(1.5rem, 0.5rem + 3vw, 3.5rem);
+  padding-bottom: clamp(3rem, 1rem + 6vw, 7rem);
+}
+
+/* meta row above the statement */
+.hero__meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--gutter);
+  margin-bottom: clamp(1.75rem, 0.5rem + 4vw, 4.5rem);
+}
+.hero__eyebrow {
+  max-width: 22ch;
+  line-height: 1.5;
+}
+.hero__eyebrow--right {
+  text-align: right;
+}
+
+/* ================= the type-only statement ================= */
+.hero__stage {
+  position: relative;
+}
+.hero__statement {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: clamp(0.1rem, 0.2vw, 0.4rem);
+  align-items: end;
+  margin: 0;
+  font-weight: 400;
+  will-change: transform;
+}
+.hero__w {
+  position: relative;
+  color: var(--ink);
+  display: block;
+}
+
+/* Split display size — big, but sized to sit in a half-width column so the
+   words flank a central whitespace channel (the future portrait zone). */
+.hero__statement {
+  --split: clamp(3rem, 0.6rem + 9vw, 9.75rem);
+}
+
+/* "I make" — grotesque lead-in, top-left */
+.hero__w--im {
+  grid-column: 1 / 6;
+  grid-row: 1;
+  align-self: end;
+  font-weight: 560;
+  font-size: var(--step-h3);
+  line-height: 0.95;
+  letter-spacing: 0.005em;
+  padding-bottom: 0.28em;
+}
+
+/* "quiet" — display serif, LEFT of the channel */
+.hero__w--quiet {
+  grid-column: 1 / 6;
+  grid-row: 2;
+  font-size: var(--split);
+  font-weight: 300;
+  line-height: 0.84;
+  letter-spacing: -0.025em;
+}
+
+/* "homes" — display serif, RIGHT of the channel */
+.hero__w--homes {
+  grid-column: 8 / 13;
+  grid-row: 2;
+  justify-self: end;
+  text-align: right;
+  font-size: var(--split);
+  font-weight: 340;
+  line-height: 0.84;
+  letter-spacing: -0.025em;
+}
+
+/* "for loud" — italic accent, LEFT, lower row */
+.hero__w--for {
+  grid-column: 1 / 6;
+  grid-row: 3;
+  font-size: var(--step-h2);
+  font-weight: 360;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  color: var(--ink-soft);
+  align-self: center;
+  padding-top: 0.1em;
+}
+
+/* "work" — biggest gesture, RIGHT, anchors the lower-right */
+.hero__w--work {
+  grid-column: 7 / 13;
+  grid-row: 3;
+  justify-self: end;
+  text-align: right;
+  font-size: var(--split);
+  font-weight: 340;
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+}
+
+/* © signature mark — top-right corner anchor, above the channel */
+.hero__cmark {
+  grid-column: 10 / 13;
+  grid-row: 1;
+  align-self: start;
+  justify-self: end;
+  font-size: var(--step-label);
+  font-weight: 560;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding-top: 0.4em;
+}
+
+/* quiet scroll cue, lower-left of the statement */
+.hero__scroll {
+  position: absolute;
+  left: 0;
+  bottom: clamp(-1.25rem, -2vw, -0.4rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  color: var(--ink-mute);
+}
+.hero__scroll-line {
+  width: clamp(2rem, 4vw, 3.5rem);
+  height: 1px;
+  background: var(--ink-mute);
+}
+
+/* ================= hero footer band ================= */
+.hero__foot {
+  margin-top: clamp(3rem, 1rem + 6vw, 6.5rem);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: end;
+}
+.hero__lead {
+  grid-column: 1 / 7;
+  font-size: var(--step-lead);
+  font-weight: 380;
+  line-height: 1.28;
+  max-width: 32ch;
+}
+.hero__cta-row {
+  grid-column: 9 / 13;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: clamp(1rem, 0.4rem + 2vw, 2.5rem);
+}
+.hero__cta {
+  position: relative;
+  color: var(--ink);
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid var(--ink);
+  transition: letter-spacing 0.5s var(--ease-drift), color 0.4s var(--ease-drift);
+}
+.hero__cta:hover {
+  letter-spacing: 0.3em;
+}
+.hero__count {
+  text-align: right;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   MOBILE / TABLET — strong STATIC editorial stack.
+   Clean vertical type; no reserved-zone gap, nothing missing.
+   ============================================================ */
+@media (max-width: 1023px) {
+  .hero__statement {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.05em;
+  }
+  .hero__w {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    /* reset desktop grid align (end/center) — in flex column those become
+       horizontal alignment and would shrink/right-align the word */
+    align-self: stretch !important;
+    justify-self: stretch;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+  .hero__w--im {
+    font-size: clamp(1.4rem, 1rem + 3vw, 2rem);
+    padding: 0 0 0.4em;
+  }
+  .hero__w--quiet,
+  .hero__w--homes,
+  .hero__w--work {
+    font-size: clamp(3.6rem, 1rem + 20vw, 7rem);
+    line-height: 0.86;
+  }
+  .hero__w--for {
+    font-size: clamp(2rem, 1rem + 9vw, 3.2rem);
+    color: var(--ink-soft);
+    text-align: left !important;
+    justify-self: start;
+    padding: 0.08em 0 0.12em;
+  }
+  .hero__cmark {
+    order: -1;
+    justify-self: start;
+    text-align: left;
+    padding: 0 0 0.6em;
+  }
+  .hero__scroll {
+    display: none;
+  }
+  .hero__foot {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.75rem;
+    margin-top: 2.5rem;
+  }
+  .hero__lead {
+    max-width: 34ch;
+  }
+  .hero__cta-row {
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+  .hero__count {
+    text-align: left;
+  }
+}

@@ -1,0 +1,27 @@
+.cursor-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+}
+.cursor-ring,
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  translate: -50% -50%;
+  visibility: hidden;
+  opacity: 0;
+  will-change: transform;
+}
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(26, 23, 18, 0.28);
+}
+.cursor-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--ink);
+}

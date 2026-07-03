@@ -1,0 +1,278 @@
+.sec {
+  position: relative;
+  z-index: 2;
+  padding-block: clamp(4rem, 2rem + 8vw, 10rem);
+  border-top: 1px solid var(--line);
+}
+.sec__head {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(1rem, 0.4rem + 2vw, 2.5rem);
+  margin-bottom: clamp(2rem, 1rem + 3vw, 4rem);
+}
+.sec__index--ghost {
+  color: var(--line);
+}
+.sec__title {
+  font-size: var(--step-h2);
+  font-weight: 320;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  max-width: 16ch;
+  margin-bottom: clamp(2.5rem, 1rem + 4vw, 5rem);
+}
+.sec__title--muted {
+  color: var(--ink-mute);
+}
+
+/* ---------- 01 Statement ---------- */
+.statement__line {
+  font-size: var(--step-h3);
+  font-weight: 340;
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  max-width: 22ch;
+  margin-bottom: clamp(2.5rem, 1rem + 4vw, 5rem);
+}
+.statement__cols {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 1.5rem;
+}
+.statement__body {
+  grid-column: span 4;
+  color: var(--ink-soft);
+  font-size: var(--step-body);
+  line-height: 1.55;
+  max-width: 40ch;
+}
+.statement__body:first-child {
+  grid-column: 3 / 7;
+}
+.statement__body:last-child {
+  grid-column: 8 / 12;
+}
+
+/* ---------- 02 Approach ---------- */
+.approach__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: clamp(2rem, 1rem + 3vw, 3.5rem);
+}
+.approach__item {
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+.approach__n {
+  display: block;
+  margin-bottom: clamp(2rem, 1rem + 3vw, 4rem);
+}
+.approach__t {
+  font-size: clamp(1.4rem, 1rem + 1.4vw, 2.1rem);
+  font-weight: 380;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+}
+.approach__d {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.5;
+  max-width: 28ch;
+}
+
+/* ---------- 03 Craft ---------- */
+.craft__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: clamp(1.75rem, 1rem + 2vw, 3rem);
+  margin-bottom: clamp(3rem, 1.5rem + 4vw, 6rem);
+}
+.craft__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: clamp(1rem, 0.4rem + 2vw, 2.5rem);
+  align-items: baseline;
+  border-top: 1px solid var(--line);
+  padding-top: 1.25rem;
+}
+.craft__n {
+  color: var(--ink-mute);
+}
+.craft__t {
+  font-size: clamp(1.5rem, 1rem + 1.8vw, 2.6rem);
+  font-weight: 360;
+  letter-spacing: -0.015em;
+  grid-column: 2;
+}
+.craft__d {
+  grid-column: 2;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+  max-width: 34ch;
+  line-height: 1.5;
+}
+
+/* ---------- editorial data table ---------- */
+.record__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.record__table th,
+.record__table td {
+  text-align: left;
+  padding: clamp(0.7rem, 0.4rem + 0.6vw, 1.1rem) 1rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: baseline;
+}
+.record__table thead th {
+  border-bottom-color: var(--ink);
+  padding-bottom: 0.6rem;
+}
+.record__table td {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+.record__lead {
+  color: var(--ink);
+  font-size: clamp(1.05rem, 0.9rem + 0.6vw, 1.35rem);
+  font-weight: 380;
+}
+.record__table tbody tr {
+  transition: background 0.4s var(--ease-drift);
+}
+.record__table tbody tr:hover {
+  background: var(--paper-2);
+}
+
+/* ---------- future work placeholder ---------- */
+.work__slots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gutter);
+}
+.work__slot {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 11px,
+    var(--line-soft) 11px,
+    var(--line-soft) 12px
+  );
+}
+.work__slot .tick {
+  border-color: var(--ink-mute);
+}
+.work__slot-n {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  color: var(--ink-mute);
+}
+.work__slot-label {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  translate: -50% 0;
+  color: var(--ink-mute);
+  background: var(--paper);
+  padding: 0.3em 0.6em;
+}
+
+/* ---------- 04 Contact ---------- */
+.sec--contact {
+  padding-bottom: clamp(3rem, 1.5rem + 4vw, 6rem);
+}
+.contact__line {
+  font-size: var(--step-h2);
+  font-weight: 320;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(2.5rem, 1rem + 4vw, 5rem);
+}
+.contact__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+}
+.contact__email {
+  font-size: clamp(1.3rem, 0.9rem + 1.8vw, 2.4rem);
+  font-weight: 360;
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.5s var(--ease-drift);
+}
+.contact__email:hover {
+  border-bottom-color: var(--ink);
+}
+.contact__links {
+  display: flex;
+  gap: clamp(1rem, 0.4rem + 2vw, 2.5rem);
+  list-style: none;
+}
+.contact__link {
+  transition: color 0.3s var(--ease-drift);
+}
+.contact__link:hover {
+  color: var(--ink);
+}
+
+/* ---------- footer ---------- */
+.footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-block: 2.5rem 3.5rem;
+  border-top: 1px solid var(--ink);
+}
+.footer__mark {
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  font-weight: 380;
+}
+.footer-c {
+  color: var(--accent);
+}
+
+/* ============================================================
+   Responsive collapse
+   ============================================================ */
+@media (max-width: 1023px) {
+  .approach__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .statement__body:first-child,
+  .statement__body:last-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 680px) {
+  .approach__grid,
+  .craft__grid,
+  .work__slots {
+    grid-template-columns: 1fr;
+  }
+  .record {
+    overflow-x: auto;
+  }
+  .record__table {
+    min-width: 34rem;
+  }
+  .contact__row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
