@@ -185,7 +185,7 @@ export function Contact() {
         </a>
         <ul className="contact__links" aria-label="Elsewhere">
           {[
-            ["Are.na", "[are.na URL]"],
+            ["Are.na", "https://www.are.na/artie-sweetman/editorial-web-c1hh-i826tm"],
             ["Instagram", "[instagram URL]"],
           ].map(([t, href]) => {
             const placeholder = href.startsWith("[");
@@ -206,7 +206,7 @@ export function Contact() {
                     className="label contact__link"
                     href={href}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     {t} ↗
                   </a>
