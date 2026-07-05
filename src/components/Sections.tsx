@@ -152,7 +152,40 @@ export function FutureWork() {
         Selected projects, <span className="italic">forthcoming</span>
       </h2>
       <div className="work__slots">
-        {["01", "02", "03"].map((n) => (
+        {/* 01 — filled concept case study (Tessa Vane) */}
+        <a
+          className="work__card"
+          href="https://tessavane.artiesweetman.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-reveal
+          data-cursor
+        >
+          <img
+            className="work__card-thumb"
+            src="/work/tessa-vane.png"
+            alt='Tessa Vane — concept artist site, gallery hero with an empty "Your work here" frame'
+            loading="lazy"
+            decoding="async"
+            width={2870}
+            height={1354}
+          />
+          <div className="work__card-body">
+            <div className="work__card-eyebrow">
+              <span className="label work__card-n">01</span>
+              <span className="label work__card-tag">Concept — speculative design</span>
+            </div>
+            <h3 className="work__card-title serif">Tessa Vane</h3>
+            <p className="work__card-desc">
+              A concept site for a fictional Ōtepoti Dunedin painter — editorial
+              gallery design with a drop-in &ldquo;Your work here&rdquo; frame.
+            </p>
+            <span className="label work__card-cta">View live site →</span>
+          </div>
+        </a>
+
+        {/* 02 / 03 — honest placeholders (unchanged) */}
+        {["02", "03"].map((n) => (
           <div className="work__slot" key={n} data-reveal aria-hidden>
             <span className="tick tl" />
             <span className="tick tr" />

@@ -276,3 +276,72 @@
     align-items: flex-start;
   }
 }
+
+/* ============================================================
+   Slot 01 — filled concept case-study card (Tessa Vane)
+   Additive + scoped to .work__card only. Reuses existing tokens;
+   introduces no new design tokens and no new accent.
+   ============================================================ */
+.work__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: inherit;
+  transition:
+    border-color 0.5s var(--ease-drift),
+    background 0.5s var(--ease-drift);
+}
+.work__card:hover {
+  border-color: var(--ink-mute);
+  background: var(--paper-2);
+}
+.work__card-thumb {
+  display: block;
+  width: 100%;
+  height: auto; /* full landscape screenshot, natural ratio — no crop of title/frame */
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-3);
+}
+.work__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1.1rem 1.1rem 1.25rem;
+}
+.work__card-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.work__card-n {
+  color: var(--ink-mute);
+}
+.work__card-tag {
+  color: var(--ink-mute);
+  border: 1px solid var(--line);
+  padding: 0.3em 0.6em;
+}
+.work__card-title {
+  font-size: var(--step-h3);
+  font-weight: 360;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.work__card-desc {
+  color: var(--ink-soft);
+  font-size: var(--step-body);
+  line-height: 1.5;
+  max-width: 36ch;
+}
+.work__card-cta {
+  align-self: flex-start;
+  margin-top: 0.35rem;
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s var(--ease-drift);
+}
+.work__card:hover .work__card-cta,
+.work__card:focus-visible .work__card-cta {
+  border-bottom-color: var(--ink);
+}
